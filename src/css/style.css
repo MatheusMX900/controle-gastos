@@ -1,0 +1,141 @@
+/* Reset e base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --bg: #f9f9f9;
+    --text: #222;
+    --primary: #4CAF50;
+    --card-bg: #fff;
+    --border: #ddd;
+  }
+  
+  .dark-mode {
+    --bg: #121212;
+    --text: #f0f0f0;
+    --primary: #81C784;
+    --card-bg: #1e1e1e;
+    --border: #333;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    padding: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Container principal */
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* Cabeçalho */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  #toggle-tema {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+  
+  /* Formulário */
+  form {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  input, select, button {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background-color: var(--card-bg);
+    color: var(--text);
+    transition: 0.3s;
+  }
+  
+  input:focus, select:focus {
+    border-color: var(--primary);
+    outline: none;
+  }
+  
+  button {
+    background-color: var(--primary);
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    filter: brightness(0.95);
+  }
+  
+  /* Lista de gastos */
+  ul#lista-gastos {
+    list-style: none;
+    margin-bottom: 20px;
+  }
+  
+  ul#lista-gastos li {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Cartões */
+  .card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  /* Total */
+  .total {
+    font-size: 1.2rem;
+  }
+  
+  /* Gráfico */
+  .grafico {
+    text-align: center;
+  }
+  
+  /* Responsivo */
+  @media (max-width: 500px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+  
+    input, select, button {
+      font-size: 0.95rem;
+    }
+  
+    .container {
+      padding: 10px;
+    }
+  }
+  

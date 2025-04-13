@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle de Gastos - Beta</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./src/css/style.css">
+
+  <!-- Chart.js -->
+  <script src="./src/js/chart.js"></script>
+
+  <!-- Dark Mode Script -->
+  <script>
+    document.documentElement.classList.toggle('dark-mode', localStorage.getItem('modoEscuro') === 'true');
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>💸 Controle de Gastos</h1>
+      <button id="toggle-tema" title="Alternar tema">🌙</button>
+    </div>
+
+    <!-- Formulário para adicionar gastos-->
+    <form id="form-gasto">
+      <input type="text" id="descricao" placeholder="Descrição" required/>
+      <input type="number" id="valor" placeholder="Valor em R$" required />
+      <select id="categoria" required>
+        <option value="">Categoria</option>
+        <option value="Alimentação">Alimentação</option>
+        <option value="Transporte">Transporte</option>
+        <option value="Lazer">Lazer</option>
+        <option value="Outros">Outros</option>
+      </select>
+      <button type="submit">➕ Adicionar</button>
+    </form>
+
+    <!-- Lista de Gastos -->
+    <ul id="lista-gastos"></ul>
+
+    <!-- Total de Gasto -->
+    <div class="total card">
+      <strong>Total:</strong> R$ <span id="valor-total">0.00</span>
+    </div>
+
+    <!-- Gráfico -->
+    <div class="grafico card">
+      <h2>📊 Distribuição por Categoria</h2>
+      <canvas id="graficoGastos" width="400" height="400"></canvas>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script>
+    const botaoTema = document.getElementById('toggle-tema');
+    botaoTema.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark-mode');
+      const estaEscuro = document.documentElement.classList.contains('dark-mode');
+      localStorage.setItem('modoEscuro', estaEscuro);
+      botaoTema.textContent = estaEscuro ? '☀️' : '🌙';
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const estaEscuro = localStorage.getItem('modoEscuro') === 'true';
+      document.documentElement.classList.toggle('dark-mode', estaEscuro);
+      document.getElementById('toggle-tema').textContent = estaEscuro ? '☀️' : '🌙';
+    });
+  </script>
+  <script src="./src/js/script.js"></script>
+</body>
+</html>
